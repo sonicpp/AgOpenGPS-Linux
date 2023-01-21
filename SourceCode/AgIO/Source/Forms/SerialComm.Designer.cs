@@ -955,28 +955,56 @@ namespace AgIO
         public void OpenGPSPort()
         {
 
+		Console.WriteLine("ABC");
             if (spGPS.IsOpen)
             {
                 //close it first
+		Console.WriteLine("IsOpen");
                 CloseGPSPort();
             }
 
 
             if (!spGPS.IsOpen)
             {
+		Console.WriteLine("!IsOpen");
                 spGPS.PortName = portNameGPS;
                 spGPS.BaudRate = baudRateGPS;
-                spGPS.DataReceived += sp_DataReceivedGPS;
+                //spGPS.DataReceived += sp_DataReceivedGPS;
                 spGPS.WriteTimeout = 1000;
+
+
+		Console.WriteLine("!IsOpen done");
             }
 
-            try { spGPS.Open(); }
+            try {
+		spGPS.Open();
+byte[] buffer = new byte[512];
+Action kickoffRead = null;
+kickoffRead = delegate {
+    spGPS.BaseStream.BeginRead(buffer, 0, buffer.Length, delegate (IAsyncResult ar) {
+        try {
+            int actualLength = spGPS.BaseStream.EndRead(ar);
+            byte[] received = new byte[actualLength];
+            Buffer.BlockCopy(buffer, 0, received, 0, actualLength);
+
+		    //Console.WriteLine("DataReceivedGPS try");
+var str = System.Text.Encoding.Default.GetString(received);
+                    BeginInvoke((MethodInvoker)(() => ReceiveGPSPort(str)));
+        }
+        catch (Exception) {
+        }
+        kickoffRead();
+    }, null);
+};
+kickoffRead();
+		}
             catch (Exception)
             {
             }
 
             if (spGPS.IsOpen)
             {
+		Console.WriteLine("IsOpen");
                 //discard any stuff in the buffers
                 spGPS.DiscardOutBuffer();
                 spGPS.DiscardInBuffer();
@@ -1016,6 +1044,7 @@ namespace AgIO
         private void ReceiveGPSPort(string sentence)
         {
             rawBuffer += sentence;
+		//Console.WriteLine("SerialComm.Designer: ReceiveGPSPort");
             ParseNMEA(ref rawBuffer);
 
             //SendToLoopBackMessageAOG(sentence);
@@ -1026,11 +1055,13 @@ namespace AgIO
         //serial port receive in its own thread
         private void sp_DataReceivedGPS(object sender, System.IO.Ports.SerialDataReceivedEventArgs e)
         {
+		    Console.WriteLine("DataReceivedGPS");
             if (spGPS.IsOpen)
             {
                 try
                 {
                     string sentence = spGPS.ReadExisting();
+		    Console.WriteLine("DataReceivedGPS try");
                     BeginInvoke((MethodInvoker)(() => ReceiveGPSPort(sentence)));
                 }
                 catch (Exception)
