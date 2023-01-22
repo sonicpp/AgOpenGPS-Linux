@@ -81,11 +81,11 @@ namespace AgIO
         private void FormLoop_Load(object sender, EventArgs e)
         {
             if (Settings.Default.setF_workingDirectory == "Default")
-                baseDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\AgOpenGPS\\";
-            else baseDirectory = Settings.Default.setF_workingDirectory + "\\AgOpenGPS\\";
+                baseDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "AgOpenGPS") + Path.DirectorySeparatorChar;
+            else baseDirectory = Path.Combine(Settings.Default.setF_workingDirectory, "AgOpenGPS") + Path.DirectorySeparatorChar;
 
             //get the fields directory, if not exist, create
-            commDirectory = baseDirectory + "AgIO\\";
+            commDirectory = Path.Combine(baseDirectory, "AgIO") + Path.DirectorySeparatorChar;
             string dir = Path.GetDirectoryName(commDirectory);
             if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir)) { Directory.CreateDirectory(dir); }
 

@@ -323,7 +323,7 @@ namespace AgOpenGPS
             mf.currentFieldDirectory = tboxFieldName.Text.Trim();
 
             //get the directory and make sure it exists, create if not
-            string dirNewField = mf.fieldsDirectory + mf.currentFieldDirectory + "\\";
+            string dirNewField = Path.Combine(mf.fieldsDirectory, mf.currentFieldDirectory) + Path.DirectorySeparatorChar;
 
             mf.menustripLanguage.Enabled = false;
             //if no template set just make a new file.
@@ -375,7 +375,7 @@ namespace AgOpenGPS
                     string myFileName, dirField;
 
                     //get the directory and make sure it exists, create if not
-                    dirField = mf.fieldsDirectory + mf.currentFieldDirectory + "\\";
+                    dirField = Path.Combine(mf.fieldsDirectory, mf.currentFieldDirectory) + Path.DirectorySeparatorChar;
                     directoryName = Path.GetDirectoryName(dirField);
 
                     if ((directoryName.Length > 0) && (!Directory.Exists(directoryName)))
