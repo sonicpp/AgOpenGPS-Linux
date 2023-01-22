@@ -313,7 +313,7 @@ namespace AgIO
             secondsSinceStart = (DateTime.Now - Process.GetCurrentProcess().StartTime).TotalSeconds;
 
             //Hello Alarm logic
-            DoHelloAlarmLogic();
+            //DoHelloAlarmLogic();
 
             DoTraffic();
 
