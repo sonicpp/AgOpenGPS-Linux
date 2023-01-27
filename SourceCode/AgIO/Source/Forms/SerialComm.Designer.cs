@@ -1019,6 +1019,7 @@ kickoffRead();
         }
         public void CloseGPSPort()
         {
+	//TODO spadne
             //if (sp.IsOpen)
             {
                 //spGPS.DataReceived -= sp_DataReceivedGPS;

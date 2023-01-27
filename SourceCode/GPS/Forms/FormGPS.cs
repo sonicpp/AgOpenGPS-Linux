@@ -258,6 +258,7 @@ namespace AgOpenGPS
         // Constructor, Initializes a new instance of the "FormGPS" class.
         public FormGPS()
         {
+		Console.WriteLine("FormGPS");
             //winform initialization
             InitializeComponent();
 
