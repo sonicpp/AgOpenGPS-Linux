@@ -25,7 +25,7 @@ namespace AgIO.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("GPS**")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/dev/ttyACM0")]
         public string setPort_portNameGPS {
             get {
                 return ((string)(this["setPort_portNameGPS"]));
@@ -37,7 +37,7 @@ namespace AgIO.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("9600")]
+        [global::System.Configuration.DefaultSettingValueAttribute("115200")]
         public int setPort_baudRateGPS {
             get {
                 return ((int)(this["setPort_baudRateGPS"]));
@@ -49,7 +49,7 @@ namespace AgIO.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool setUDP_isOn {
             get {
                 return ((bool)(this["setUDP_isOn"]));
@@ -540,7 +540,7 @@ namespace AgIO.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
         public bool setUDP_isSendNMEAToUDP {
             get {
                 return ((bool)(this["setUDP_isSendNMEAToUDP"]));

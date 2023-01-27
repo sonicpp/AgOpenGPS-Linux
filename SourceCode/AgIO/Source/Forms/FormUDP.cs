@@ -17,8 +17,8 @@ namespace AgIO
 
         //used to send communication check pgn= C8 or 200
         private byte[] sendIPToModules = { 0x80, 0x81, 0x7F, 201, 5, 201, 201, 192, 168, 5, 0x47 };
-        private byte[] ipCurrent = { 192, 168, 5 };
-        private byte[] ipNew = { 192, 168, 5 };
+        private byte[] ipCurrent = { 192, 168, 0 };
+        private byte[] ipNew = { 192, 168, 0 };
 
         public FormUDP(Form callingForm)
         {

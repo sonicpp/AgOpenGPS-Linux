@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="setPort_portNameGPS" Type="System.String" Scope="User">
-      <Value Profile="(Default)">GPS**</Value>
+      <Value Profile="(Default)">/dev/ttyACM0</Value>
     </Setting>
     <Setting Name="setPort_baudRateGPS" Type="System.Int32" Scope="User">
-      <Value Profile="(Default)">9600</Value>
+      <Value Profile="(Default)">115200</Value>
     </Setting>
     <Setting Name="setUDP_isOn" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -132,7 +132,7 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="setUDP_isSendNMEAToUDP" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
+      <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="setPort_portNameRtcm" Type="System.String" Scope="User">
       <Value Profile="(Default)">RTCM</Value>

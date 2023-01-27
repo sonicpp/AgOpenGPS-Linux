@@ -17,6 +17,7 @@ namespace AgIO
         /// <param name="settingsFilePath">Usually Documents.Drive.Folder</param>
         internal static void ImportSettings(string settingsFilePath)
         {
+Console.WriteLine("Import settingsFilePath: " + settingsFilePath);
             if (!File.Exists(settingsFilePath))
             {
                 throw new FileNotFoundException();
@@ -51,6 +52,7 @@ namespace AgIO
 
         internal static void ExportSettings(string settingsFilePath)
         {
+Console.WriteLine("Export settingsFilePath: " + settingsFilePath);
             Properties.Settings.Default.Save();
 
             //Export the entire settings as an xml
