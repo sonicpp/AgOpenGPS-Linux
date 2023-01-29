@@ -36,6 +36,12 @@ Included in this repository is an application, and source folders.
 
 See the PCB repo for PCB layouts, firmware for steering and rate control, machine control, GPS and simulator. 
 
+cd SourceCode/AgIO && LANG=C xbuild
+cd SourceCode/GPS/ && LANG=C xbuild
+https://wiki.archlinux.org/title/Working_with_the_serial_console
+LANG=C mono AgOpenGPS_v5/AgOpenGPS.exe
+
+
 *** Important ****
 
 If you distribute copies of such a program, whether
